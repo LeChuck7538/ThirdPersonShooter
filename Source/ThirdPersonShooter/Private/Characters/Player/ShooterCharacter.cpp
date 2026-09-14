@@ -20,8 +20,8 @@ AShooterCharacter::AShooterCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	FollowCamera->bUsePawnControlRotation = false;
 	
-	bUseControllerRotationYaw = false;
-	bUseControllerRotationPitch = true;
+	bUseControllerRotationYaw = true;
+	bUseControllerRotationPitch = false;
 	bUseControllerRotationRoll = false;
 	
 	GetCharacterMovement()->bOrientRotationToMovement = true;
