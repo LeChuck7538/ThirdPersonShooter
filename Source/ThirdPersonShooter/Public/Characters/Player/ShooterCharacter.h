@@ -5,6 +5,9 @@
 #include "GameFramework/InputSettings.h"
 #include "ShooterCharacter.generated.h"
 
+struct FInputActionValue;
+class UInputMappingContext;
+class UInputAction;
 class UCameraComponent;
 class USpringArmComponent;
 
@@ -27,6 +30,19 @@ public:
 protected:
 	
 	virtual void BeginPlay() override;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
+	TObjectPtr<UInputMappingContext> PlayerMappingContext;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
+	TObjectPtr<UInputAction> MoveAction;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
+	TObjectPtr<UInputAction> LookAction;
+	
+	// Function to move in all directions.
+	void Move(const FInputActionValue& Value);
+	void Look(const FInputActionValue& Value);
 
 private:
 	
